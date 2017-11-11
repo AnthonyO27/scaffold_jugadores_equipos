@@ -1,0 +1,39 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+  <div class="jumbotron ">
+  <h1 class="text-center">Jugadores</h1>
+</div>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Equipo</th>
+      <th scope="col" colspan="3" class="text-center">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jugadores.each do |jugadore| %>
+      <tr>
+        <td><%= jugadore.nombre %></td>
+        <td><%= jugadore.apellido %></td>
+        <td><%= jugadore.edad %></td>
+        <td><%= jugadore.equipo.nombre %></td>
+        <td><%= link_to 'Mostrar', jugadore %></td>
+        <td><%= link_to 'Editar', edit_jugadore_path(jugadore) %></td>
+        <td><%= link_to 'Eliminar', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrar nuevo Jugador', new_jugadore_path %>
+
+</div>

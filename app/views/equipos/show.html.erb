@@ -1,0 +1,16 @@
+<div class="container">
+	<div>
+		<h1 class="text-center"> Datos del equipo</h1>
+	</div>
+	<hr>
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Nombre:</strong>
+	  <%= @equipo.nombre %>
+	</p>
+	
+	<%= link_to 'Editar', edit_equipo_path(@equipo) %> |
+	<%= link_to 'Regresar', equipos_path %>
+</div>

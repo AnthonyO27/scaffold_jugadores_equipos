@@ -1,0 +1,5 @@
+importar la base de datos que está en 
+bases_datos/app_development.sql
+y crear otras dos denominadas
+* app_production
+* app_test

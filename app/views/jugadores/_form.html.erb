@@ -1,0 +1,44 @@
+<div class="container">
+  
+
+<%= form_with(model: jugadore, local: true) do |form| %>
+  <% if jugadore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jugadore.errors.count, "error") %> prohibited this jugadore from being saved:</h2>
+
+      <ul>
+      <% jugadore.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group row" >
+    <label>Nombre: </label>
+    <div class="">
+      <%= form.text_field :nombre, id: :jugadore_nombre, class:'form-control' %>
+    </div>
+  
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido %>
+    <%= form.text_field :apellido, id: :jugadore_apellido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edad %> 
+    <%= form.number_field :edad, id: :jugadore_edad %>
+  </div>
+
+  <div class="field form-group row">
+    <%= form.label :equipo %>
+    <%= form.collection_select :equipo_name, Equipo.order(:nombre),:id,:nombre, include_blank: true ,class:'custom-select ' %>
+  </div>
+
+  <div class="actions ">
+    <%= form.submit 'Guardar', class:'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
